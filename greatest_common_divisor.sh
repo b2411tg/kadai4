@@ -4,7 +4,7 @@
 argument_check() {
     expr "$1" + 1 >&/dev/null
     if [ $? -eq 2 ]; then
-        echo '入力エラー数字以外の文字が入力されました'
+        echo '入力エラー! 引き数がないか、数字以外の文字が入力されました'
         exit 1
     fi
 }
