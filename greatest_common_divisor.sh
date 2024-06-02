@@ -4,7 +4,11 @@
 argument_check() {
     expr "$1" + 1 >&/dev/null
     if [ $? -eq 2 ]; then
-        echo '入力エラー! 引き数がないか、数字以外の文字が入力されました'
+        echo '入力エラー！ 引き数がないか、数字以外の文字が入力されました。'
+        exit 1
+    fi
+    if [ $1 -eq 0 ]; then
+        echo '入力エラー！ 引数が自然数ではありません。'
         exit 1
     fi
 }
@@ -21,6 +25,14 @@ b=$2
 if [ $1 -lt $2 ]; then
     a=$2
     b=$1
+fi   
+
+# 負の場合は整数にする
+if [ $a -lt 0 ]; then
+    a=$(($a * -1))
+fi
+if [ $b -lt 0 ]; then
+    b=$(($b * -1)) 
 fi
 
 # 最大公約数を計算（ユークリッドの互除法）
