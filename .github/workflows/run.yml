@@ -1,0 +1,7 @@
+name: gcd-test-actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gcd_test.sh
