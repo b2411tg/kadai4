@@ -4,4 +4,9 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - run: ./gcd_test.sh
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Permission Setting
+        run: chmod +x gcd_test.sh
+      - name: Test Run
+        run: ./gcd_test.sh
